@@ -1,3 +1,3 @@
 module github.com/SemyonDunaev/kata_calc
 
-go 1.18
+go 1.19
