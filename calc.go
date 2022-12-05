@@ -110,7 +110,7 @@ func calculate(isRoman bool, a string, b string, delimiter string) string {
 
 		result := ariphmeticOperation(x, y, delimiter)
 		if result <= 0 {
-			return ("There are no zero or negative numbers in the roman system!")
+			return "There are no zero or negative numbers in the roman system!"
 		}
 		return intToRoman(result)
 	}
