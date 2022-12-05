@@ -12,9 +12,12 @@ import (
 
 func main() {
 	fmt.Println("Format: X ariphmetic_operation Y. Example: 1 + 4 for arabic or X + VI for roman.")
+
 	reader := bufio.NewReader(os.Stdin)
+
 	var digitCheck = regexp.MustCompile(`^([1-9]|10)[+*/\-]([1-9]|10)$`)
 	var romanCheck = regexp.MustCompile(`^(IX|X|IV|V?I{0,3})?[+*/\-](IX|X|IV|V?I{0,3})?$`)
+
 	for {
 		var isRoman bool
 		var delimiter string
