@@ -11,12 +11,12 @@ import (
 )
 
 func main() {
-	fmt.Println("Format: X ariphmetic_operation Y. Example: 1 + 4 for arabic or X + VI for roman.")
+	fmt.Println("Format: X arithmetic_operation Y. Example: 1 + 4 for arabic or X + VI for roman.")
 
 	reader := bufio.NewReader(os.Stdin)
 
-	var digitCheck = regexp.MustCompile(`^([1-9]|10)[+*/\-]([1-9]|10)$`)
-	var romanCheck = regexp.MustCompile(`^(IX|X|IV|V?I{0,3})?[+*/\-](IX|X|IV|V?I{0,3})?$`)
+	var digitCheck = regexp.MustCompile(`^([1-9]|10)[+*/-]([1-9]|10)$`)
+	var romanCheck = regexp.MustCompile(`^(IX|X|IV|V?I{0,3})?[+*/-](IX|X|IV|V?I{0,3})?$`)
 
 	for {
 		var isRoman bool
@@ -38,7 +38,7 @@ func main() {
 		delimiter = getDelimiter(text)
 		splitText := strings.Split(text, delimiter)
 
-		fmt.Println("Ouput:\n", calculate(isRoman, splitText[0], splitText[1], delimiter))
+		fmt.Println("Output:\n", calculate(isRoman, splitText[0], splitText[1], delimiter))
 	}
 }
 
@@ -71,7 +71,7 @@ func romanToInt(s string) int {
 }
 
 func intToRoman(i int) string {
-	var roman string = ""
+	var roman = ""
 	var numbers = []int{1, 4, 5, 9, 10, 40, 50, 90, 100}
 	var romans = []string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C"}
 
@@ -90,9 +90,9 @@ func intToRoman(i int) string {
 
 // Get delimiter to split string and use it for switching  ariphmetic operations
 func getDelimiter(text string) string {
-	re := regexp.MustCompile(`\+|\-|\*|\/`)
-	delimiter_index := re.FindStringIndex(text)
-	delimiter := string(text[delimiter_index[0]])
+	re := regexp.MustCompile(`\+|-|\*|/`)
+	delimiterIndex := re.FindStringIndex(text)
+	delimiter := string(text[delimiterIndex[0]])
 	return delimiter
 }
 
